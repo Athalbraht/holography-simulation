@@ -1,0 +1,15 @@
+#include "functions.h"
+
+using namespace std;
+
+int dim=2, resolution=100;
+
+int main()
+{
+  Simulation *sim = new Simulation(2, 2000, 1e10, 1,1,1);
+  sim->fill();
+  sim->reference_beam();
+  sim->object_beam();
+  sim->save();
+  return 0;
+}
