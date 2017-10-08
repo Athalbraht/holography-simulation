@@ -8,12 +8,12 @@ double tt = 0;
 int main(int argc, char *argv[])
 {
 
-  Simulation *sim = new Simulation(2, 900, 1e10, 1.1,1,1);
+  Simulation *sim = new Simulation(2, 20, 1e10, 1.1,20,20);
   //sim->fill();
   //sim->reference_beam();
   //sim->object_beam();
   //sim->save();
-  sim->start(10);
+  sim->start(50);
 
   return 0;
 }

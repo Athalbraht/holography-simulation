@@ -22,7 +22,7 @@ try:
             for j in range(res):
                 _temp[i][j] += frame[i][j]        
    # print(_temp)
-    plt.imshow(_temp, interpolation="lanczos", cmap='gray')
+    plt.imshow(_temp, interpolation="bicubic", cmap='gray')
 finally:
     file.close()
     plt.show()
