@@ -4,16 +4,25 @@ try:
     file = open("test.data", "r")
     tab = file.readlines()
     res = int(float(tab[0])**0.5)
-    data = tab[1].split()
     print(res)
-    data = [float(i) for i in data]
-    data2=[]
-    for i in range(res):
+    data2 = []
+    for tb in tab[1:]:
+        temp = tb.split()
+        temp = [float(i) for i in temp]
         data2.append([])
-        for j in range(res):
-            data2[i].append(data[i+j*res])
-
-    plt.imshow(data2, interpolation="lanczos", cmap='gray')
+        for i in range(res):
+            data2[-1].append([])
+            for j in range(res):
+                data2[-1][i].append(temp[i+j*res])
+                
+    #print(data2[1])    
+    _temp = data2[0]           
+    for frame in data2[1:]:
+        for i in range(res):
+            for j in range(res):
+                _temp[i][j] += frame[i][j]        
+   # print(_temp)
+    plt.imshow(_temp, interpolation="lanczos", cmap='gray')
 finally:
     file.close()
     plt.show()

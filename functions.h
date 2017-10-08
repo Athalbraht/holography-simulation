@@ -13,9 +13,10 @@ class Simulation
   Simulation(int, int,double, double, double, double);
   void fill();
   double source(double, double);
-  void reference_beam();
-  void object_beam();
+  void reference_beam(double);
+  void object_beam(double);
   void save();
+  void start(int);
   
 
 };

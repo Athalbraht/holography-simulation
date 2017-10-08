@@ -32,13 +32,13 @@ double Simulation::source(double t, double x)
 	return cos(2*3.14*f*(t - x/c));
 }
 
-void Simulation::reference_beam()
+void Simulation::reference_beam(double tt)
 {
 	for(int i=0; i<resolution; i++)
 	{
 		for(int j=0; j<resolution; j++)
 		{
-			net[i + j*resolution] = source(i/f, len+ i*sin(3.14/2)*c/f);
+			net[i + j*resolution] = source(tt/f, len+ 1.*sin(3.14/2)*c/f);
 	//		cout<<net[i+j*resolution]<<" ";
 		}
 	//	cout<<endl;
@@ -46,7 +46,7 @@ void Simulation::reference_beam()
 }
 
 
-void Simulation::object_beam()
+void Simulation::object_beam(double tt)
 {
 	for(int i=0; i<resolution; i++)
 	{
@@ -55,7 +55,7 @@ void Simulation::object_beam()
 			double R = 0.5*resolution*c/f; 
 			double x = R-R*sin(acos((c/f*resolution/2 - j*c/f)/R));
 			//cout<<x<<endl;
-			net[i + j*resolution] += source(i/f,x);
+			net[i + j*resolution] += source(tt/f,x);
 			//cout<<net[i+j*resolution]<<" ";
 		}
 		//cout<<endl;
@@ -65,11 +65,24 @@ void Simulation::object_beam()
 void Simulation::save()
 {
 	fstream file;
-	file.open("test.data", ios::out);
+	file.open("test.data", ios::app);
 	file<<n_net<<endl;
 	for(int i=0; i<n_net; i++)
 	{
 		file<<net[i]<<" ";
 	}
 	file.close();
+}
+
+void Simulation::start(int n)
+{
+	fill();
+	double t = 0.;
+	for(int i=0;i<n;i++)
+	{
+		t += dt;
+		reference_beam(t);
+		object_beam(t);
+		save();
+	}
 }
