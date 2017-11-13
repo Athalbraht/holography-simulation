@@ -1,3 +1,4 @@
+'''
 import os
 from sys import argv
 temp = []
@@ -19,4 +20,4 @@ for i in (int(argv[1])):
 	finally:
 		file.close()
 		plt.show()
-
+'''
