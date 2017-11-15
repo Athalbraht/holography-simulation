@@ -16,7 +16,7 @@ im = ic.change_type('{}examples/cache/{}'.format(cp, sys.argv[1]), '{}examples/c
 
 n = im.shape[1]
 print(n)
-l = 0.5
+l = 0.9
 a = 0.002
 z = 10
 p_size = 0.1
@@ -39,3 +39,19 @@ print(q2.shape)
 plt.imshow(np.abs(q2)**2,cmap='gray')
 plt.savefig('{}/examples/cache/{}_holo.png'.format(cp,sys.argv[1][:-4]))
 plt.show()
+plt.clf()
+
+zz=1
+for i in range(400):
+    z-=0.1
+    p2 = prop.propagator(l,z,fx,fy)
+
+
+    q3 = np.fft.ifftshift(np.fft.fft2(np.fft.fftshift(im)))
+    print(q1.shape)
+    q4 = np.fft.fftshift(np.fft.ifft2(np.fft.ifftshift(q3*p2)))
+    print(q2.shape)
+    plt.imshow(np.abs(q4),cmap='gray')
+    plt.savefig('test/{}.png'.format(i))
+    plt.clf()
+

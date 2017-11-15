@@ -4,7 +4,7 @@ import numpy as np
 def change_type(path,new_path,_type):
     image = Image.open(path)
     _image = image.convert(_type)
-    _image.save(new_path)
+    #:_image.save(new_path)
     pixels = _image.load()
     
     im_to_arr = np.zeros(_image.size)
@@ -14,7 +14,7 @@ def change_type(path,new_path,_type):
         for j in range(im_to_arr.shape[1]):
             im_to_arr[i][j] = float(pixels[i,j])
 
-    _object = I - (im_to_arr - np.min(im_to_arr))/(np.max(im_to_arr) - np.min(im_to_arr))
+    _object =  (im_to_arr - np.min(im_to_arr))/(np.max(im_to_arr) - np.min(im_to_arr))
     
     return _object
 
