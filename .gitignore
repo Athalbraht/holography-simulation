@@ -4,3 +4,5 @@
 *.out
 *.data
 debug/
+venv/
+f_*.png
