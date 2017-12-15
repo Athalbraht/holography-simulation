@@ -5,4 +5,5 @@
 *.data
 debug/
 venv/
+Holopy/WebApp/data/
 f_*.png

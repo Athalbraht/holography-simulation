@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 ##############################
-# Author:  Albert Szadziński #
+# Author:  Albert Szadzinski #
 # Date:    12.12.17          #
 # Version: v0.2b             #
 ##############################
 
-#import hyperdash
+# import hyperdash
 import time
 from flask import Flask, render_template, flash, request, redirect, send_file, url_for
 
