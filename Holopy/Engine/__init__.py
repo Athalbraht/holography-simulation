@@ -10,7 +10,7 @@ if __name__ == "__main__":
         hologram = propagator.reholo_arr(_object, z, float(argv[4]), float(argv[4]), float(argv[5]))
     else:
         hologram = propagator.holo_arr(_object, z, float(argv[4]), float(argv[4]), float(argv[5]))
-    propagator.save_holo(hologram, argv[2])
+    propagator.save_holo(hologram, argv[2], float(argv[4]))
 
 
 

@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from PIL import Image
+import matplotlib.cbook as cbook
+from matplotlib_scalebar.scalebar import ScaleBar
 
 def f_fresnel(z_arr, x_res, y_res, wavelenght, reconstruct=False):
     s = np.zeros(z_arr.shape)
@@ -32,9 +33,13 @@ def z_const(_object, cz):
     z = np.full(_object.shape, cz)
     return z
 
-def save_holo(_object, path):
-    im = Image.fromarray(_object)
-    im = im.convert('L')
-    im.save("your_file.jpeg")
+def save_holo(_object, path, n):
+    plt.imshow(_object, cmap='gray', interpolation='lanczos')
+    plt.title('Hologram')
+    plt.xlabel('px')
+    plt.ylabel('px')
+    scalebar = ScaleBar(n/500,'m', box_alpha=0.2)
+    plt.gca().add_artist(scalebar)
+    plt.savefig(path, bbox_inches='tight', pad_inches=0)
     return None
 
