@@ -20,13 +20,18 @@
 	</div>
 	
 	<div class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-resize-full"></i></span>
+		<input id="email" type="text" class="form-control" name="resolution" placeholder="Resolution [m]">
+	</div>	
+	
+	<div class="input-group">
 		<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
 		<input id="email" type="text" class="form-control" name="distance" placeholder="Distance">
 	</div><br>
 	
 	<div class="form-group">
 		<label cfor="fil1">File: </label>
-		<p class="text-muted" style="text-align:center; font-size:12px"> Max resolution: <b>200x200px</b>, allowed extensions: <b>.png</b> </p>
+		<p class="text-muted" style="text-align:center; font-size:12px"> Min resolution: <b>500x500px</b>, allowed extensions: <b>.png</b> </p>
 		<input type="file" id="fil1" name="file" >
 	</div>		
 	
@@ -34,5 +39,5 @@
 	<button type="sumbit" class="btn btn-success"> Calculate </button>
 	
 </form> 
-
+{% block holo %}{% endblock %}
 {% endblock %}

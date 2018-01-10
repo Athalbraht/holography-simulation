@@ -1,9 +1,12 @@
-import image_converter
-import propagator
-import numpy as np
-from sys import argv
+
+
+__all__ = ['propagator', 'image_converter']
 
 if __name__ == "__main__":
+    import image_converter
+    import propagator
+    import numpy as np
+    from sys import argv
     _object = image_converter.convert_image(argv[1])
     z = propagator.z_const(_object, float(argv[3]))
     if len(argv) == 8:

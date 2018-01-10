@@ -1,8 +1,9 @@
 import numpy as np
 from PIL import Image
 
-def convert_image(path, _type='L'):
+def convert_image(path, _type='L', size=(500,500)):
     image = Image.open(path)
+    image.thumbnail(size)
     image = image.convert(_type)#default convert to grayscale
 
     pixels = image.load()#getting pixels data
