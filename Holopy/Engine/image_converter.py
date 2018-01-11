@@ -17,7 +17,8 @@ def convert_image(path, _type='L', size=(500,500)):
 
     #normalization
     _object = (px_array - np.min(px_array))/(np.max(px_array) - np.min(px_array))
-
+    I = np.ones(size)
+    #_object = I - _object
     return _object
 
 
