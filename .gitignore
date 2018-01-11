@@ -6,6 +6,6 @@
 debug/
 venv/
 Holopy/WebApp/data/
-Holopy/WebApp/static/holograms/
+Holopy/WebApp/static/Holopy_holo/
 __pycache__
 f_*.png

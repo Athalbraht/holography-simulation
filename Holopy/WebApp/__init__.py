@@ -11,15 +11,16 @@ import os
 import sys
 import time
 import hologen
-import config
+import config_app
 from flask import Flask, render_template, flash, request, redirect, send_file, url_for, session
 
 ######################### APP_config #####################
-sett = config.test(sys.argv)
+sett = config_app.test(sys.argv)
 app = Flask(__name__)
 app.secret_key = 'holography'
 app.debug = True
-app.config['UPLOAD_FOLDER'] = sett['-d']+'/Holopy_holo/raw/'
+os.system('ln -s {}/Holopy_holo/ {}static/'.format(sett['-d'], sys.argv[0][:-11]))
+app.config['UPLOAD_FOLDER'] = sett['-d']+'Holopy_holo/raw/'
 ALLOWED_EXTENSIONS = set(['png'])
 
 holo_path = sett['-d']+'Holopy_holo/holo/'
@@ -31,6 +32,8 @@ reholo_path = sett['-d']+'Holopy_holo/reholo/'
 
 ################# Global variables ######################
 
+
+img_path = 'static/Holopy_holo/'.format( sys.argv[0][:-11])
 types = ['Generate hologram',
          'Reconstruct image']
 
@@ -70,8 +73,8 @@ def inline():
 
         return render_template('inline_result.html',
                                types=types,
-                               _link='/static/holograms/holo/' + session['filename'],
-                               _link2='/static/holograms/reholo/' + session['filename'])
+                               _link=img_path + '/holo/' + session['filename'],
+                               _link2= img_path + '/reholo/' + session['filename'])
 
     return render_template('inline.html', types=types)
 
