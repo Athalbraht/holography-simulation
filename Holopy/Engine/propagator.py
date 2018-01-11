@@ -24,13 +24,13 @@ def holo_arr(_object, z_arr, x_res, y_res, wavelenght):
     shape = _object.shape
     #hologram = np.fft.ifft2(np.fft.fft2(_object)*f_fresnel(z_arr, x_res, y_res, wavelenght,True))
     hologram = _ifft(_fft(_object)*f_fresnel(z_arr, x_res, y_res, wavelenght,True))
-    hologram = np.abs(hologram)
+    hologram = np.abs(hologram)**2
     return hologram
 
 def reholo_arr(_object, z_arr, x_res, y_res, wavelenght):
     shape = _object.shape
     img = _ifft(_fft(_object)*f_fresnel(z_arr, x_res, y_res, wavelenght, True))
-    img = np.abs(img)
+    img = np.abs(img)**2
     return img
 
 
