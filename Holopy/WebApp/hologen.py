@@ -1,7 +1,6 @@
-import os
 import sys
 
-cp = os.getcwd()
+cp = sys.argv[0][:-19]
 sys.path.insert(0,cp)
 
 from Engine import *
