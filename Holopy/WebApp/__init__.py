@@ -7,30 +7,34 @@
 ##############################
 
 # import hyperdash
+import os
+import sys
 import time
 import hologen
+import config
 from flask import Flask, render_template, flash, request, redirect, send_file, url_for, session
-#from flask.ext.images import resized_img_src
 
+######################### APP_config #####################
+sett = config.test(sys.argv)
 app = Flask(__name__)
-app.secret_key = 'xD123'
+app.secret_key = 'holography'
 app.debug = True
-app.config['UPLOAD_FOLDER'] = 'WebApp/static/holograms/raw/'
+app.config['UPLOAD_FOLDER'] = sett['-d']+'/Holopy_holo/raw/'
 ALLOWED_EXTENSIONS = set(['png'])
 
-holo_path = 'WebApp/static/holograms/holo/'
-reholo_path = 'WebApp/static/holograms/reholo/'
+holo_path = sett['-d']+'Holopy_holo/holo/'
+reholo_path = sett['-d']+'Holopy_holo/reholo/'
 
-###############################################
+################### monitoring  #########################
 
 #_monitor = hyperdash.Experiment('Flask App')
 
-################################################
+################# Global variables ######################
 
 types = ['Generate hologram',
          'Reconstruct image']
 
-################################################
+################### ROUTES  ##############################
 
 @app.route('/')
 def home():
@@ -76,13 +80,13 @@ def inline():
 def login():
     return render_template('login.html')
 
-#########################################################
+#################### Functions ###########################
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-#########################################################
+##########################################################
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host=sett['-i'], port=int(sett['-p']))
