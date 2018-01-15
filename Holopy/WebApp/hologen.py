@@ -17,3 +17,4 @@ def get_holo(path, new_path,new2_path, zz, res, wave):
     rehologram = propagator.reholo_arr(hologram, z, res, res, wave)
     propagator.save_holo(hologram, new_path, res)
     propagator.save_holo(rehologram, new2_path, res, 'Reconstruct')
+

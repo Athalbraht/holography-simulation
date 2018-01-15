@@ -15,6 +15,7 @@ if __name__ == "__main__":
     rhologram = propagator.reholo_arr(hologram, z, float(argv[4]), float(argv[4]), float(argv[5]))
     propagator.save_holo(hologram, argv[2], float(argv[4]))
     propagator.save_holo(rhologram, argv[2]+'.png', float(argv[4]), 'reconstruct')
+    image_converter.holo_to_png(hologram, argv[2]+'x.png')
 
 
 

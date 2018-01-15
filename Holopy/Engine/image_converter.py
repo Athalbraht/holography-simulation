@@ -21,5 +21,10 @@ def convert_image(path, _type='L', size=(500,500)):
     #_object = I - _object
     return _object
 
+def holo_to_png(_object, path):
+    shape = _object.shape
+    image = Image.fromarray(_object*255)
+    image = image.convert('L')  # default convert to grayscale
+    image.save(path)
 
 
