@@ -1,0 +1,2 @@
+recursive-include Holopy/Webapp/templates *
+recursive-include Holopy/Webapp/static *

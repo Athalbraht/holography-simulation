@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+
+{% block body %}
+
+<h2>Inline Hologram</h2>
+<form method="post" enctype="multipart/form-data">
+	
+	<div class="form-group"><br>
+		<label for="sel1">Type:</label>
+		<select class="form-control" id="sel1" name="type">
+		{% for i in types %}
+			<option>{{ i }}</option>
+		{% endfor %}
+		</select>
+	</div> 
+	
+	<div class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-resize-full"></i></span>
+		<input id="email" type="text" class="form-control" name="lambda" placeholder="Wavelenght [nm]">
+	</div>
+	
+	<div class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-resize-full"></i></span>
+		<input id="email" type="text" class="form-control" name="resolution" placeholder="Physical dimensions of the image [m]">
+	</div>	
+	
+	<div class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+		<input id="email" type="text" class="form-control" name="distance" placeholder="Distance between reconstruct point and hologram [mm] ">
+	</div><br>
+	
+	<div class="form-group">
+		<p class="text-muted" style="text-align:center; font-size:12px"> Transmittance defined by color, white = 0, black = 1 </p>
+		<label cfor="fil1">File: </label>
+		<p class="text-muted" style="text-align:center; font-size:12px"> Max resolution: <b>1000x1000px</b>, allowed extensions: <b>.png</b> </p>
+		<input type="file" id="fil1" name="file" >
+	</div>		
+	
+	</div><br> 
+	<button type="sumbit" class="btn btn-success"> Calculate </button>
+	
+</form> 
+{% block holo %}{% endblock %}
+{% endblock %}
