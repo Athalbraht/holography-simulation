@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 ##############################
 # Author:  Albert Szadzinski #
-# Date:    10.02.18          #
+# Date:    10.01.18          #
 # Version: v1.1b             #
 ##############################
 
@@ -28,13 +28,14 @@ if __name__ == '__main__':
     img_path = 'static/Holopy_holo/'.format(sys.argv[0][:-11])
     holo_path = sett['-d'] + 'Holopy_holo/holo/'
     reholo_path = sett['-d'] + 'Holopy_holo/reholo/'
-    types = ['Plane waves']
+    types = ['Plane waves', 'Spherical waves']
 
     ################### ROUTES ##############################
 
     @app.route('/')
     def home():
-        return render_template('index.html')
+        return redirect(url_for('inline'))
+        #return render_template('index.html')
 
 
     @app.route('/inline', methods=['POST', 'GET'])
@@ -44,7 +45,10 @@ if __name__ == '__main__':
             session['_type'] = request.form['type']
             session['_lambda'] = request.form['lambda']
             session['_distance'] = request.form['distance']
+            session['_z0'] = request.form['z0']
             session['res'] = request.form['resolution']
+            if session['_z0'] == '':
+                session['_z0'] = 1
             _file = request.files['file']
 
             if _file.filename == '':
@@ -55,7 +59,7 @@ if __name__ == '__main__':
                 session['filename'] = str(int(time.time())) + '.png'
                 _file.save(app.config['UPLOAD_FOLDER'] + session['filename'])
             else:
-                flash('Wrong extension')
+                flash('Wrong extension x{}x')
                 return redirect(request.url)
 
             hologen.get_holo(app.config['UPLOAD_FOLDER'] + session['filename'],
@@ -63,7 +67,9 @@ if __name__ == '__main__':
                              reholo_path + session['filename'],
                              float(session['_distance']),
                              float(session['res']),
-                             float(session['_lambda']) * 1e-9)
+                             float(session['_lambda']) * 1e-9,
+                             session['_type'],
+                             float(session['_z0']))
 
             return render_template('inline_result.html',
                                    types=types,
@@ -76,6 +82,10 @@ if __name__ == '__main__':
     @app.route('/login', methods=['POST', 'GET'])
     def login():
         return render_template('login.html')
+        
+    @app.route('/about')
+    def about():
+        return render_template('about.html')
 
 
     @app.route('/docs')
