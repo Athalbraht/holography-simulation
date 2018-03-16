@@ -26,11 +26,16 @@
 	
 	<div class="input-group">
 		<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-		<input id="email" type="text" class="form-control" name="distance" placeholder="Distance between reconstruct point and hologram [mm] ">
+		<input id="email" type="text" class="form-control" name="distance" placeholder="Distance between reconstruct point(or object) and hologram [m] ">
+	</div>
+	
+	<div class="input-group">
+		<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+		<input id="email" type="text" class="form-control" name="z0" placeholder="Distance between light source and object [m] (for plane wave = infinity)">
 	</div><br>
 	
 	<div class="form-group">
-		<p class="text-muted" style="text-align:center; font-size:12px"> Transmittance defined by color, white = 0, black = 1 </p>
+		<p class="text-muted" style="text-align:center; font-size:12px"> Transmittance defined by color, white = 1, black = 0 </p>
 		<label cfor="fil1">File: </label>
 		<p class="text-muted" style="text-align:center; font-size:12px"> Max resolution: <b>1000x1000px</b>, allowed extensions: <b>.png</b> </p>
 		<input type="file" id="fil1" name="file" >
