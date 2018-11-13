@@ -1,0 +1,6 @@
+venv/
+*.pyc
+*.swp
+*.cache
+*.js
+*.data
