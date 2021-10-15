@@ -19,7 +19,7 @@ pytz==2017.3
 requests==2.20.0
 six==1.11.0
 Unidecode==0.4.21
-urllib3==1.24.2
+urllib3==1.26.5
 Werkzeug==0.15.3
 certifi==2017.11.5
 chardet==3.0.4
@@ -43,7 +43,7 @@ pytz==2017.3
 requests==2.20.0
 six==1.11.0
 Unidecode==0.4.21
-urllib3==1.24.2
+urllib3==1.26.5
 Werkzeug==0.15.3
 certifi==2017.11.5
 chardet==3.0.4
@@ -69,5 +69,5 @@ pytz==2017.3
 requests==2.20.0
 six==1.11.0
 Unidecode==0.4.21
-urllib3==1.24.2
+urllib3==1.26.5
 Werkzeug==0.15.3
