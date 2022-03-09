@@ -9,7 +9,7 @@ itsdangerous==0.24
 Jinja2==2.11.3
 MarkupSafe==1.0
 matplotlib==2.1.0
-numpy==1.13.3
+numpy==1.21.0
 olefile==0.44
 Pillow==9.0.0
 pyparsing==2.2.0
@@ -33,7 +33,7 @@ Jinja2==2.11.3
 MarkupSafe==1.0
 matplotlib==2.1.0
 matplotlib-scalebar==0.4.1
-numpy==1.13.3
+numpy==1.21.0
 olefile==0.44
 Pillow==9.0.0
 pyparsing==2.2.0
@@ -57,7 +57,7 @@ Jinja2==2.11.3
 MarkupSafe==1.0
 matplotlib==2.1.0
 matplotlib-scalebar==0.4.1
-numpy==1.13.3
+numpy==1.21.0
 olefile==0.44
 PIL==1.1.7
 Pillow==9.0.0
