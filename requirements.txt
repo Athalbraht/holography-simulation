@@ -16,7 +16,7 @@ pyparsing==2.2.0
 python-dateutil==2.6.1
 python-slugify==1.2.4
 pytz==2017.3
-requests==2.31.0
+requests==2.32.0
 six==1.11.0
 Unidecode==0.4.21
 urllib3==1.26.18
@@ -40,7 +40,7 @@ pyparsing==2.2.0
 python-dateutil==2.6.1
 python-slugify==1.2.4
 pytz==2017.3
-requests==2.31.0
+requests==2.32.0
 six==1.11.0
 Unidecode==0.4.21
 urllib3==1.26.18
@@ -66,7 +66,7 @@ pyparsing==2.2.0
 python-dateutil==2.6.1
 python-slugify==1.2.4
 pytz==2017.3
-requests==2.31.0
+requests==2.32.0
 six==1.11.0
 Unidecode==0.4.21
 urllib3==1.26.18
