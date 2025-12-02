@@ -20,7 +20,7 @@ requests==2.32.4
 six==1.11.0
 Unidecode==0.4.21
 urllib3==2.5.0
-Werkzeug==3.0.6
+Werkzeug==3.1.4
 certifi==2024.7.4
 chardet==3.0.4
 click==6.7
@@ -44,7 +44,7 @@ requests==2.32.4
 six==1.11.0
 Unidecode==0.4.21
 urllib3==2.5.0
-Werkzeug==3.0.6
+Werkzeug==3.1.4
 certifi==2024.7.4
 chardet==3.0.4
 click==6.7
@@ -70,4 +70,4 @@ requests==2.32.4
 six==1.11.0
 Unidecode==0.4.21
 urllib3==2.5.0
-Werkzeug==3.0.6
+Werkzeug==3.1.4
